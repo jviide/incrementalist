@@ -20,22 +20,21 @@ describe("Incrementalist", () => {
       expect(node).to.have.property("value", 1);
     });
 
-    it("should return a IncrementalistItem instance", () => {
+    it("should return an object implementing IncrementalistItem", () => {
       const inc = createSummer();
-      const node = inc.insert(1);
-      expect(node).to.be.instanceof(IncrementalistItem);
+      const node: IncrementalistItem<number, number> = inc.insert(1);
     });
   });
 
-  describe("#reduced()", () => {
+  describe("#reduce()", () => {
     it("should return undefined for an empty instance", () => {
       const inc = createSummer();
-      expect(inc.reduced()).to.be.undefined;
+      expect(inc.reduce()).to.be.undefined;
     });
 
     it("should return the given default for an empty instance", () => {
       const inc = createSummer();
-      expect(inc.reduced(1)).to.equal(1);
+      expect(inc.reduce(1)).to.equal(1);
     });
 
     it("should return the reduced value for a non-empty instance", () => {
@@ -47,7 +46,7 @@ describe("Incrementalist", () => {
         sum += i;
       }
 
-      expect(inc.reduced()).to.equal(sum);
+      expect(inc.reduce()).to.equal(sum);
     });
   });
 });
