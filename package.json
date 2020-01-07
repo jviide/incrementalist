@@ -26,5 +26,8 @@
   },
   "keywords": [
     "typescript"
-  ]
+  ],
+  "mangle": {
+    "regex": "^_"
+  }
 }
